@@ -1,2 +1,535 @@
-# pets
-web
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Good Pet dog walking in Kingston upon Thames, Surbiton and New Malden. £15 per hour.">
+<title>Good Pet | Local Dog Walking</title>
+<style>
+:root {
+  --background: #f7f4eb;
+  --green: #263d30;
+  --orange: #b34d2e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--green);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+header, main, footer {
+  max-width: 1050px;
+  margin: auto;
+  padding: 24px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+}
+a { color: inherit; }
+.button, button {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+}
+.button:hover, button:hover { background: #405d48; }
+.hero { padding: 60px 0; }
+.tag {
+  color: var(--orange);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(44px, 8vw, 76px);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+h2 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.2;
+}
+h1 span { color: var(--orange); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+.card {
+  padding: 26px;
+  border-radius: 14px;
+  background: #dfe5ce;
+}
+.card:nth-child(2) { background: #f0d8c6; }
+.card:nth-child(3) { background: #f1e7be; }
+.price {
+  font-size: 27px;
+  font-weight: bold;
+}
+section { margin-bottom: 55px; }
+form {
+  background: #ece8da;
+  padding: 28px;
+  border-radius: 16px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+label {
+  display: block;
+  font-weight: bold;
+}
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0 18px;
+  border: 1px solid #9da58f;
+  border-radius: 6px;
+  background: white;
+  color: var(--green);
+  font: inherit;
+}
+textarea { resize: vertical; }
+.full { grid-column: 1 / -1; }
+.note {
+  font-size: 14px;
+  color: #59634f;
+}
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+footer {
+  border-top: 1px solid #cbd0bd;
+  font-size: 14px;
+}
+#result {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #9da58f;
+}
+details {
+  padding: 16px 0;
+  border-bottom: 1px solid #cbd0bd;
+}
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 650px) {
+  .cards, .fields { grid-template-columns: 1fr; }
+  header, main, footer { padding: 20px; }
+  header { align-items: flex-start; }
+  .logo { font-size: 24px; }
+  .hero { padding: 30px 0; }
+  form { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="logo" href="#">🐾 Good Pet</a>
+  <a href="#request">Request a walk</a>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="tag">KINGSTON · SURBITON · NEW MALDEN</p>
+    <h1>Happy walks.<br><span>Happy dogs.</span></h1>
+    <p>
+      Friendly dog walking in Kingston upon Thames,
+      Surbiton and New Malden, UK.
+    </p>
+    <p>
+      <strong>£15 per hour.</strong>
+      Fresh air, sniff stops and a walk at your dog’s pace.
+    </p>
+    <a class="button" href="#request">Plan your dog’s walk</a>
+  </section>
+
+  <section>
+    <h2>A little adventure for every dog.</h2>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Neighbourhood stroll</h3>
+        <p>A 30-minute walk for fresh air and familiar routes.</p>
+        <p class="price">£7.50</p>
+      </article>
+
+      <article class="card">
+        <h3>A bigger adventure</h3>
+        <p>A full hour to explore and stretch those legs.</p>
+        <p class="price">£15</p>
+      </article>
+
+      <article class="card">
+        <h3>Regular walks</h3>
+        <p>Plan walks around your week and your dog’s routine.</p>
+        <p class="price">£15/hour</p>
+      </article>
+    </div>
+
+    <p class="note">
+      Availability must be confirmed. For multiple dogs,
+      please confirm the total price before booking.
+    </p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>Choose a walk and tell us about your dog.</li>
+      <li>Prepare your request using the form below.</li>
+      <li>Open your email app and press Send.</li>
+      <li>
+        Wait for a reply to agree availability, pickup arrangements
+        and a meet-and-greet.
+      </li>
+    </ol>
+  </section>
+
+  <section id="request">
+    <h2>Request a dog walk</h2>
+    <p>Complete the details to prepare an email to Good Pet.</p>
+
+    <form id="walk-form">
+      <div class="fields">
+        <label>
+          Your name
+          <input
+            name="customer"
+            autocomplete="name"
+            maxlength="80"
+            required>
+        </label>
+
+        <label>
+          Customer phone number
+          <input
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="30"
+            placeholder="e.g. 07700 900123"
+            required>
+        </label>
+
+        <label>
+          Your dog’s name
+          <input name="dog" maxlength="80" required>
+        </label>
+
+        <label>
+          Dog breed or type
+          <input
+            name="breed"
+            placeholder="Labrador, mixed breed or unknown"
+            maxlength="100"
+            required>
+        </label>
+
+        <label>
+          Your area
+          <select name="area" required>
+            <option value="">Choose your area</option>
+            <option>Kingston upon Thames</option>
+            <option>Surbiton</option>
+            <option>New Malden</option>
+          </select>
+        </label>
+
+        <label>
+          Postcode
+          <input
+            name="postcode"
+            autocomplete="postal-code"
+            placeholder="e.g. KT1 1AA"
+            maxlength="12"
+            required>
+        </label>
+
+        <label>
+          House number or name
+          <input
+            name="house"
+            placeholder="e.g. 12 or Rose Cottage"
+            maxlength="80"
+            required>
+        </label>
+
+        <label>
+          Street
+          <input
+            name="street"
+            placeholder="Street name"
+            maxlength="120"
+            required>
+        </label>
+
+        <label>
+          Choose a walk
+          <select name="walk">
+            <option>30-minute walk — £7.50</option>
+            <option>60-minute walk — £15</option>
+            <option>Regular walks — £15/hour</option>
+          </select>
+        </label>
+
+        <label>
+          Number of dogs
+          <select name="dogs">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </label>
+
+        <label>
+          Preferred date
+          <input id="walk-date" name="date" type="date" required>
+        </label>
+
+        <label>
+          Preferred time
+          <input name="time" type="time" required>
+        </label>
+
+        <label class="full">
+          Anything we should know?
+          <textarea
+            name="notes"
+            rows="4"
+            maxlength="1000"
+            placeholder="Lead behaviour, preferred days or other walking needs"></textarea>
+        </label>
+      </div>
+
+      <p class="note">
+        Your details prepare an email on your device.
+        This form does not store or send them automatically.
+        If you send the email, your contact details and address
+        will be shared with Good Pet to discuss your request.
+        Please do not include door codes or payment details.
+      </p>
+
+      <button type="submit">Prepare email request</button>
+
+      <div id="result" hidden>
+        <p>
+          <strong>Your request is ready.</strong>
+          Open your email app using the button below,
+          then press Send there.
+        </p>
+
+        <div class="actions">
+          <a id="email-link" class="button" href="#">
+            Open email request
+          </a>
+          <button id="copy-request" type="button">
+            Copy request
+          </button>
+        </div>
+
+        <p class="note">
+          No email app? Copy the request below and send it to
+          <a href="mailto:h3516727@gmail.com">h3516727@gmail.com</a>
+          using Gmail or your usual email service.
+        </p>
+
+        <textarea
+          id="email-text"
+          rows="16"
+          readonly
+          aria-label="Your prepared walking request"></textarea>
+
+        <p id="copy-status" role="status"></p>
+
+        <p class="note">
+          Preparing a request does not send it.
+          A request is not a confirmed booking.
+          Please wait for a reply.
+        </p>
+      </div>
+    </form>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+
+    <details>
+      <summary>Where do you offer dog walking?</summary>
+      <p>
+        Kingston upon Thames, Surbiton and New Malden, UK.
+        Please confirm pickup arrangements before booking.
+      </p>
+    </details>
+
+    <details>
+      <summary>How much does a walk cost?</summary>
+      <p>
+        £15 per hour or £7.50 for 30 minutes.
+        Regular walks use the same £15 hourly rate.
+        For more than one dog, please confirm the total price.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is my walk booked after completing the form?</summary>
+      <p>
+        No. The form prepares an email. You must send that email
+        and receive confirmation before your walk is booked.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I arrange regular walks?</summary>
+      <p>
+        Yes—select Regular walks and include your preferred
+        days and walk length in the notes. Availability
+        must be confirmed.
+      </p>
+    </details>
+  </section>
+
+  <section>
+    <h2>Get in touch</h2>
+    <p>
+      Email:
+      <a href="mailto:h3516727@gmail.com">h3516727@gmail.com</a>
+    </p>
+    <p>
+      Serving Kingston upon Thames, Surbiton and New Malden, UK.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Good Pet · Dog walking with care.
+</footer>
+
+<script>
+const form = document.getElementById("walk-form");
+const dateInput = document.getElementById("walk-date");
+const result = document.getElementById("result");
+const emailText = document.getElementById("email-text");
+const emailLink = document.getElementById("email-link");
+const copyStatus = document.getElementById("copy-status");
+
+function updateDateMinimum() {
+  const now = new Date();
+
+  document.getElementById("year").textContent = now.getFullYear();
+
+  dateInput.min =
+    now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2, "0") + "-" +
+    String(now.getDate()).padStart(2, "0");
+}
+
+updateDateMinimum();
+
+dateInput.addEventListener("focus", updateDateMinimum);
+
+form.addEventListener("input", function () {
+  result.hidden = true;
+  emailLink.removeAttribute("href");
+  emailText.value = "";
+  copyStatus.textContent = "";
+});
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  updateDateMinimum();
+
+  if (!form.reportValidity()) return;
+
+  const data = new FormData(form);
+
+  const message = [
+    "Hello Good Pet!",
+    "",
+    "I would like to request a dog walk.",
+    "",
+    "Customer name: " + data.get("customer").trim(),
+    "Customer phone: " + data.get("phone").trim(),
+    "Dog name: " + data.get("dog").trim(),
+    "Dog breed or type: " + data.get("breed").trim(),
+    "",
+    "Pickup address:",
+    data.get("house").trim() + ", " + data.get("street").trim(),
+    data.get("area"),
+    data.get("postcode").trim().toUpperCase(),
+    "United Kingdom",
+    "",
+    "Walk: " + data.get("walk"),
+    "Preferred date: " + data.get("date"),
+    "Preferred time: " + data.get("time") + " (UK local time)",
+    "Number of dogs: " + data.get("dogs"),
+    "",
+    "Additional notes: " + (data.get("notes").trim() || "None"),
+    "",
+    "Please confirm availability, total price and next steps."
+  ].join("\n");
+
+  emailText.value = message;
+
+  emailLink.href =
+    "mailto:h3516727@gmail.com?subject=" +
+    encodeURIComponent("Good Pet — dog walking request") +
+    "&body=" +
+    encodeURIComponent(message);
+
+  copyStatus.textContent = "";
+  result.hidden = false;
+  emailLink.focus();
+});
+
+document.getElementById("copy-request").addEventListener(
+  "click",
+  async function () {
+    try {
+      await navigator.clipboard.writeText(emailText.value);
+      copyStatus.textContent =
+        "Copied. Paste this into your email and press Send.";
+    } catch {
+      emailText.focus();
+      emailText.select();
+      copyStatus.textContent =
+        "Press Ctrl+C to copy, then paste into your email.";
+    }
+  }
+);
+</script>
+</body>
+</html>
